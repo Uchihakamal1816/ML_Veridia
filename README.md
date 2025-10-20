@@ -37,7 +37,7 @@ Refined the resume text data to improve input quality:
 - Applied **advanced lemmatization** using `WordNetLemmatizer` to normalize word forms.
 
 <p align="center">
-  <img src="images/bars_pre.png" alt="Text Distribution Visualization" width="600"/>
+  <img src="images/bar_pre.png" alt="Text Distribution Visualization" width="600"/>
   <img src="images/advance.png" alt="Lemmatization Example" width="600"/>
 </p>
 
