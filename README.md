@@ -19,44 +19,71 @@ The model is designed for **real-time classification** and **deployed on AWS** f
 ## 🧭 Approach Followed
 
 ### 1. 🧩 Exploratory Data Analysis (EDA)
-- Inspected dataset shape, missing values, and class distribution to identify imbalances across resume categories.  
-- Examined average **word** and **token counts** per resume to set the optimal `max_length = 512` for tokenization.  
-- Visualized TF-IDF features to explore relationships between word frequency patterns and category clusters.
+Performed detailed EDA to understand the dataset’s structure and balance:
+- Checked dataset shape, missing values, and category imbalance.
+- Analyzed average word/token counts per resume to set `max_length = 512`.
+- Visualized TF-IDF and frequency patterns to identify distinct category clusters.
+
+<p align="center">
+  <img src="images/words.png" alt="EDA Visualization" width="700"/>
+</p>
+
+---
 
 ### 2. 🧹 Data Preprocessing
-- Converted all text to lowercase.  
-- Removed special characters, URLs, digits, and excessive whitespace.  
-- Eliminated stopwords to retain only meaningful tokens.  
-- Applied **advanced lemmatization** using `WordNetLemmatizer` for consistent base-word representation (e.g., “running” → “run”).
+Refined the resume text data to improve input quality:
+- Lowercased all text and removed special characters, URLs, digits, and extra whitespace.
+- Eliminated stopwords while retaining key domain-related terms.
+- Applied **advanced lemmatization** using `WordNetLemmatizer` to normalize word forms.
 
-### 3. 🤖 Model Selection
-- Selected **DistilBERT**, a lightweight variant of BERT, balancing efficiency and contextual understanding.
+<p align="center">
+  <img src="images/bars_pre.png" alt="Text Distribution Visualization" width="600"/>
+  <img src="images/advance.png" alt="Lemmatization Example" width="600"/>
+</p>
 
-### 4. 🔠 Tokenization
-- Utilized the **DistilBERT tokenizer** to convert text into token IDs.  
-- Applied **padding** and **truncation** (`max_length = 512`) to ensure uniform sequence lengths.
+---
 
-### 5. 🏋️ Training
-- Used a **Weighted Trainer** to handle class imbalance.  
-- Fine-tuned for **9 epochs** with `learning_rate = 3e-5` using the **AdamW optimizer**.  
-- Monitored **loss**, **accuracy**, **F1-score**, **precision**, and **recall** for both training and validation.  
+### 3. 🔠 Tokenization
+Converted the cleaned text into numerical tokens using the **DistilBERT tokenizer**:
+- Applied **padding** and **truncation** (max length = 512) for consistent input size.
+- Verified input sequences before training.
 
-### 6. 📊 Evaluation
-- Achieved **F1-score > 0.85** with minimal overfitting and smooth learning curves.  
-- Analyzed **classification metrics** and **confusion matrix** for per-class performance.  
-- Applied **softmax temperature scaling (T = 0.2)** to enhance prediction confidence calibration.
+<p align="center">
+  <img src="images/preprocess.png" alt="Distribution Flow" width="700"/>
+</p>
 
-### 7. 💾 Model Saving
-- Exported:
-  - Fine-tuned **DistilBERT model**
-  - **Tokenizer**
-  - **Label Encoder (`label_encoder.pkl`)**
-- Ensured full reproducibility for future deployment.
+---
 
-### 8. ☁️ Deployment
-- Integrated into a **Streamlit web app** for user-friendly resume classification.  
-- Deployed on **AWS** (e.g., SageMaker / Lambda) for scalable, real-time inference.  
-- Designed for integration with ATS or HR applications.
+### 4. 🏋️ Model Training
+- Implemented a **Weighted Trainer** to handle class imbalance.
+- Fine-tuned the model for **9 epochs** with a learning rate of `3e-5` using **AdamW** optimizer.
+- Monitored training metrics: **loss**, **accuracy**, **F1-score**, **precision**, and **recall**.
+
+---
+
+### 5. 📊 Evaluation
+- Achieved **F1-score > 0.85** with strong validation accuracy and minimal overfitting.
+- Analyzed confusion matrix and class-wise metrics.
+- Applied **softmax temperature scaling (T = 0.2)** to enhance prediction confidence.
+
+<p align="center">
+  <img src="images/matrix.png" alt="Evaluation Metrics" width="700"/>
+</p>
+
+---
+
+### 6. 💾 Model Saving
+Exported components for reproducibility:
+- Fine-tuned **DistilBERT model**
+- **Tokenizer**
+- **Label Encoder (`label_encoder.pkl`)**
+
+---
+
+### 7. ☁️ Deployment
+- Integrated into a **Streamlit web interface** for resume classification.  
+- Deployed on **AWS** (e.g., SageMaker / Lambda) for scalable, real-time predictions.  
+- Designed to integrate seamlessly with ATS or HR applications.
 
 ---
 
@@ -75,11 +102,13 @@ The model is designed for **real-time classification** and **deployed on AWS** f
 ---
 
 ## 🚀 Outcome
-Successfully developed and deployed a **fine-tuned DistilBERT resume classifier** capable of accurately predicting job categories from resumes, supporting scalable integration with real-world hiring systems.
+Successfully fine-tuned and deployed a **DistilBERT-based resume classifier** achieving high performance and scalability.  
+Capable of automatically categorizing resumes across multiple job domains with real-time prediction capability.
 
 ---
 
 ## 👨‍💻 Author
 **Nannuri Sai Kamal**  
 *Intern – Veridia.io*  
-B.Tech Mechatronics | IIT Bhilai  
+B.Tech Mechatronics | IIT Bhilai
+
