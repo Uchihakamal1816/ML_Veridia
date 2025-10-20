@@ -81,8 +81,7 @@ Exported components for reproducibility:
 ---
 
 ### 7. ☁️ Deployment
-- Integrated into a **Streamlit web interface** for resume classification.  
-- Deployed on **AWS** (e.g., SageMaker / Lambda) for scalable, real-time predictions.  
+- Integrated into a **Streamlit web interface** for resume classification.    
 - Designed to integrate seamlessly with ATS or HR applications.
 
 ---
@@ -96,7 +95,7 @@ Exported components for reproducibility:
 | **Text Processing** | NLTK (lemmatization, tokenization), Stopword Removal, Advanced Cleaning |
 | **Data Handling & Analysis** | Pandas, NumPy, Matplotlib, Seaborn |
 | **Machine Learning Utilities** | Scikit-learn (LabelEncoder, Metrics) |
-| **Deployment & Web App** | Streamlit, AWS (SageMaker / Lambda) |
+| **Deployment & Web App** | Streamlit|
 | **Version Control & Environment** | Git, Jupyter Notebook |
 
 ---
