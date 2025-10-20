@@ -71,12 +71,16 @@ Converted the cleaned text into numerical tokens using the **DistilBERT tokenize
 </p>
 
 ---
-
 ### 6. 💾 Model Saving
-Exported components for reproducibility:
-- Fine-tuned **DistilBERT model**
-- **Tokenizer**
-- **Label Encoder (`label_encoder.pkl`)**
+Exported components for reproducibility and external access:
+
+- Fine-tuned **DistilBERT model**  
+- **Tokenizer**  
+- **Label Encoder (`label_encoder.pkl`)**  
+
+The complete model and artifacts are publicly available on Kaggle:  
+👉 [**DistilBERT Resume Classifier – Kaggle Model**](https://www.kaggle.com/models/nannurisaikamal/distilbert-resume-final-model)
+
 
 ---
 
